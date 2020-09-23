@@ -72,12 +72,20 @@ $response = Invoke-WebRequest -Uri 'http://localhost:8080/api/order-endpoint/ord
 echo $response;
 ```
 
-
+To get the transport order
 ```
 $transportId = 'f4650544-018b-4761-8dfc-14f646b357ed'
 $response = Invoke-WebRequest -Uri "http://localhost:8080/api/transport-endpoint/transport/$($transportId)" -Method GET 
 echo $response
 ```
+
+To get the csv report with an order greater than 500.00
+```
+$response = Invoke-WebRequest -Uri 'http://localhost:8080/api/order-endpoint/order/report' -Method GET 
+echo $response
+```
+
+
 
 
 
