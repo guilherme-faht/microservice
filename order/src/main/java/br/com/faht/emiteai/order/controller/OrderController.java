@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +33,7 @@ public class OrderController {
 	}
 	
 	@PostMapping("/insert")
-	public ResponseEntity<OrderDto> insertOrder(@RequestBody OrderDto orderDto) {
+	public ResponseEntity<OrderDto> insertOrder(@RequestBody @Valid OrderDto orderDto) {
 		Order order = orderService.insertOrder(Order.fromOrderDto(orderDto));
 		return ResponseEntity.ok(OrderDto.fromOrder(order));
 	}
